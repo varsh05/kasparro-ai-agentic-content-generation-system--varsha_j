@@ -1,0 +1,31 @@
+{
+  "product_a": {
+    "name": "GlowBoost Vitamin C Serum",
+    "price": 699,
+    "ingredients": [
+      "Vitamin C",
+      "Hyaluronic Acid"
+    ]
+  },
+  "product_b": {
+    "name": "RadiantGlow Serum",
+    "price": 799,
+    "ingredients": [
+      "Vitamin C",
+      "Niacinamide"
+    ]
+  },
+  "comparison_summary": {
+    "price_difference": -100,
+    "ingredients": {
+      "product_a": [
+        "Vitamin C",
+        "Hyaluronic Acid"
+      ],
+      "product_b": [
+        "Vitamin C",
+        "Niacinamide"
+      ]
+    }
+  }
+}
