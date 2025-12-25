@@ -10,22 +10,33 @@ from templates.product_template import product_page_template
 from templates.faq_template import faq_template
 from templates.comparison_template import comparison_template
 
+# DAG-style execution steps (Directed Acyclic Graph)
+PIPELINE_DAG = [
+    "parse_product_data",
+    "generate_user_questions",
+    "build_product_page",
+    "build_faq_page",
+    "build_comparison_page"
+]
+
 
 class Orchestrator:
     """
-    Orchestrates the entire agentic content generation pipeline.
+    Orchestrates the agentic content generation pipeline
+    using a DAG-style step pipeline.
     """
 
     def run(self, raw_product_data: dict) -> dict:
-        # Step 1: Parse product data
+
+        # Parse product data
         parser = ProductParserAgent()
-        product = parser.parse(raw_product_data)
+        product = parser.run(raw_product_data)
 
-        # Step 2: Generate user questions
+        # Generate categorized user questions
         question_agent = QuestionGenerationAgent()
-        questions = question_agent.generate(product)
+        questions = question_agent.run(product)
 
-        # Step 3: Generate Product Page
+        # Build Product Page
         product_page = product_page_template(
             product,
             generate_benefits(product),
@@ -33,17 +44,16 @@ class Orchestrator:
             generate_safety(product)
         )
 
-        # Step 4: Generate FAQ Page
+        # Build FAQ Page
         faq_page = faq_template(questions)
 
-        # Step 5: Create fictional Product B (as required)
+        # Build Comparison Page
         product_b = {
             "name": "RadiantGlow Serum",
             "ingredients": ["Vitamin C", "Niacinamide"],
             "price": 799
         }
 
-        # Step 6: Generate Comparison Page
         comparison_data = compare_products(product, product_b)
         comparison_page = comparison_template(product, product_b, comparison_data)
 

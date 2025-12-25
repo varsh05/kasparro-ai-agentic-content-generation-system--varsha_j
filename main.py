@@ -1,4 +1,3 @@
-# main.py
 
 import json
 from data import PRODUCT_DATA

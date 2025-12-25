@@ -1,10 +1,11 @@
-class QuestionGenerationAgent:
+from agents.base_agent import BaseAgent
+class QuestionGenerationAgent(BaseAgent):
     """
     Agent responsible for generating categorized
-    user questions from product data.
+    user questions from structured product data.
     """
 
-    def generate(self, product: dict) -> dict:
+    def run(self, product: dict) -> dict:
         return {
             "informational": [
                 f"What is {product['name']}?",
