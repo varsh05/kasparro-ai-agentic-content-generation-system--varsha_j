@@ -45,7 +45,8 @@ Product context:
 {state.product_context}
 """
 
-        response = self.llm.invoke(prompt)
+        response = self.safe_invoke(prompt)
+
 
         try:
             parsed = extract_json(response.content)
@@ -67,4 +68,6 @@ Product context:
             state.errors.append(f"ComparisonAgent failed: {str(e)}")
             raise RuntimeError("Invalid ComparisonAgent output")
 
-        return state
+        return {
+            "comparison_page": parsed
+        }

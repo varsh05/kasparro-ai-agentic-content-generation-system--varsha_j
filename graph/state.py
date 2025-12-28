@@ -1,28 +1,35 @@
-from typing import Dict, List, Optional
-from pydantic import BaseModel, Field
+from pydantic import BaseModel
+from typing import Dict, List, Any, Optional
+from typing_extensions import Annotated
 
 
 class GraphState(BaseModel):
     """
-    Central state object passed between LangGraph nodes.
-    This state enables memory, validation, retries, and orchestration.
+    Shared state for the agentic system.
+
+    IMPORTANT DESIGN NOTES:
+    - raw_product_data is IMMUTABLE input (written once)
+    - All other fields are updated incrementally by agents
+    - Agents MUST return partial dict updates, not full state
     """
 
-    # Input
-    raw_product_data: Dict
+    # --------------------
+    # Immutable input
+    # --------------------
+    raw_product_data: Annotated[Dict[str, Any], "input"]
 
-    # Normalized product data (LLM-assisted)
-    product_context: Optional[Dict] = None
-
-    # FAQ generation
+    # --------------------
+    # Agent-generated state
+    # --------------------
+    product_context: Optional[Dict[str, Any]] = None
     faq_questions: Optional[List[str]] = None
-    faqs: Optional[List[Dict]] = None
+    faqs: Optional[List[Dict[str, str]]] = None
+    product_page: Optional[Dict[str, Any]] = None
+    comparison_page: Optional[Dict[str, Any]] = None
 
-    # Generated pages
-    product_page: Optional[Dict] = None
-    comparison_page: Optional[Dict] = None
-
-    # Control & robustness
+    # --------------------
+    # System metadata
+    # --------------------
     retry_count: int = 0
     max_retries: int = 2
-    errors: List[str] = Field(default_factory=list)
+    errors: List[str] = []

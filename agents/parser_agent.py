@@ -33,7 +33,8 @@ Raw product input:
 {state.raw_product_data}
 """
 
-        response = self.llm.invoke(prompt)
+        response = self.safe_invoke(prompt)
+
 
         try:
             parsed_output = extract_json(response.content)
@@ -42,4 +43,6 @@ Raw product input:
             state.errors.append(f"ParserAgent failed: {str(e)}")
             raise RuntimeError("ParserAgent returned invalid JSON")
 
-        return state
+        return {
+            "product_context": parsed_output
+        }

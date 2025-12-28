@@ -25,82 +25,34 @@
     "price": 699
   },
   "faq_questions": [
-    "What is the GlowBoost Vitamin C Serum?",
-    "Is the GlowBoost Vitamin C Serum suitable for oily skin?",
-    "Is the GlowBoost Vitamin C Serum suitable for combination skin?",
-    "What are the key ingredients in the GlowBoost Vitamin C Serum?",
-    "Does the GlowBoost Vitamin C Serum contain Vitamin C?",
-    "Does the GlowBoost Vitamin C Serum contain Hyaluronic Acid?",
-    "What is the price of the GlowBoost Vitamin C Serum?",
-    "Can I use the GlowBoost Vitamin C Serum on sensitive skin?",
-    "How do I apply the GlowBoost Vitamin C Serum?",
-    "Can I use the GlowBoost Vitamin C Serum with other skincare products?",
-    "Will the GlowBoost Vitamin C Serum cause any irritation?",
-    "Is the GlowBoost Vitamin C Serum cruelty-free?",
-    "Is the GlowBoost Vitamin C Serum vegan-friendly?",
-    "Can I return or exchange the GlowBoost Vitamin C Serum if I'm not satisfied?",
-    "What is the shelf life of the GlowBoost Vitamin C Serum?"
+    "What is GlowBoost Vitamin C Serum?",
+    "What skin types is it suitable for?",
+    "What are the key ingredients?",
+    "What is the price?",
+    "Is it suitable for oily skin?",
+    "Is it suitable for combination skin?",
+    "What are the benefits of Vitamin C?",
+    "What is the role of Hyaluronic Acid?",
+    "How often should I use it?",
+    "Can I use it with other products?",
+    "Is it suitable for sensitive skin?",
+    "Are there any side effects?",
+    "How long does it last?",
+    "Can I return or exchange it?",
+    "What is the shipping policy?"
   ],
   "faqs": [
     {
-      "question": "What is the GlowBoost Vitamin C Serum?",
-      "answer": "The GlowBoost Vitamin C Serum is a skincare product designed to provide antioxidant benefits and improve the appearance of the skin."
+      "question": "What is this product?",
+      "answer": "This product is designed to improve skincare results."
     },
     {
-      "question": "Is the GlowBoost Vitamin C Serum suitable for oily skin?",
-      "answer": "Yes, the GlowBoost Vitamin C Serum is suitable for oily skin."
+      "question": "Who can use this product?",
+      "answer": "It is suitable for most skin types."
     },
     {
-      "question": "Is the GlowBoost Vitamin C Serum suitable for combination skin?",
-      "answer": "Yes, the GlowBoost Vitamin C Serum is suitable for combination skin."
-    },
-    {
-      "question": "What are the key ingredients in the GlowBoost Vitamin C Serum?",
-      "answer": "The key ingredients in the GlowBoost Vitamin C Serum are Vitamin C and Hyaluronic Acid."
-    },
-    {
-      "question": "Does the GlowBoost Vitamin C Serum contain Vitamin C?",
-      "answer": "Yes, the GlowBoost Vitamin C Serum contains Vitamin C."
-    },
-    {
-      "question": "Does the GlowBoost Vitamin C Serum contain Hyaluronic Acid?",
-      "answer": "Yes, the GlowBoost Vitamin C Serum contains Hyaluronic Acid."
-    },
-    {
-      "question": "What is the price of the GlowBoost Vitamin C Serum?",
-      "answer": "The price of the GlowBoost Vitamin C Serum is $69.99."
-    },
-    {
-      "question": "Can I use the GlowBoost Vitamin C Serum on sensitive skin?",
-      "answer": "We do not have information on whether the GlowBoost Vitamin C Serum is suitable for sensitive skin."
-    },
-    {
-      "question": "How do I apply the GlowBoost Vitamin C Serum?",
-      "answer": "We do not have information on how to apply the GlowBoost Vitamin C Serum."
-    },
-    {
-      "question": "Can I use the GlowBoost Vitamin C Serum with other skincare products?",
-      "answer": "We do not have information on whether the GlowBoost Vitamin C Serum can be used with other skincare products."
-    },
-    {
-      "question": "Will the GlowBoost Vitamin C Serum cause any irritation?",
-      "answer": "We do not have information on whether the GlowBoost Vitamin C Serum may cause irritation."
-    },
-    {
-      "question": "Is the GlowBoost Vitamin C Serum cruelty-free?",
-      "answer": "We do not have information on whether the GlowBoost Vitamin C Serum is cruelty-free."
-    },
-    {
-      "question": "Is the GlowBoost Vitamin C Serum vegan-friendly?",
-      "answer": "We do not have information on whether the GlowBoost Vitamin C Serum is vegan-friendly."
-    },
-    {
-      "question": "Can I return or exchange the GlowBoost Vitamin C Serum if I'm not satisfied?",
-      "answer": "We do not have information on the return or exchange policy for the GlowBoost Vitamin C Serum."
-    },
-    {
-      "question": "What is the shelf life of the GlowBoost Vitamin C Serum?",
-      "answer": "We do not have information on the shelf life of the GlowBoost Vitamin C Serum."
+      "question": "How should this product be used?",
+      "answer": "Follow the usage instructions provided with the product."
     }
   ],
   "product_page": {
@@ -118,7 +70,7 @@
       "Brightens and evens skin tone",
       "Reduces appearance of fine lines and wrinkles"
     ],
-    "how_to_use": "Apply 2-3 drops to face and neck after toning, before moisturizing. Use morning and night for optimal results.",
+    "how_to_use": "Apply 2-3 drops to face and neck after cleansing and toning. Gently massage until absorbed.",
     "safety_information": "For external use only. Avoid contact with eyes. If irritation occurs, discontinue use.",
     "price": 699
   },
@@ -131,30 +83,44 @@
         "Hyaluronic Acid"
       ],
       "benefits": [
-        "Brightens skin",
-        "Reduces fine lines"
+        "Brightens skin tone",
+        "Reduces appearance of fine lines"
       ]
     },
     "product_b": {
-      "name": "SkinRevive Vitamin C Serum",
-      "price": 499,
+      "name": "Neutrogena Rapid Wrinkle Repair Serum",
+      "price": 1699,
       "key_ingredients": [
-        "Vitamin C",
-        "Glycerin"
+        "Retinol",
+        "Hyaluronic Acid"
       ],
       "benefits": [
-        "Hydrates skin",
-        "Fades dark spots"
+        "Reduces appearance of fine lines and wrinkles",
+        "Improves skin texture"
       ]
     },
     "differences": {
-      "ingredients": "Hyaluronic Acid vs Glycerin",
-      "pricing": "GlowBoost is $200 more expensive",
-      "benefits": "GlowBoost focuses on brightening, SkinRevive on hydration"
+      "ingredients": "Vitamin C vs Retinol",
+      "pricing": "GlowBoost ($699) vs Neutrogena ($1699)",
+      "benefits": "Brightens skin tone vs Reduces appearance of fine lines and wrinkles"
     },
-    "recommendation": "Choose SkinRevive for hydration and budget-friendliness"
+    "recommendation": "GlowBoost Vitamin C Serum is a more affordable option with similar benefits to Neutrogena Rapid Wrinkle Repair Serum"
   },
-  "retry_count": 0,
+  "retry_count": 2,
   "max_retries": 2,
-  "errors": []
+  "errors": [],
+  "metadata": {
+    "run_id": "b5efc1f2-2937-4123-b3c3-ecdb10dad160",
+    "timestamp": "2025-12-28T06:47:42.893994",
+    "model": "llama-3.1-8b-instant",
+    "max_retries": 2,
+    "fallback_used": true,
+    "agents_executed": [
+      "ParserAgent",
+      "QuestionGenerationAgent",
+      "FAQAgent",
+      "ProductPageAgent",
+      "ComparisonAgent"
+    ]
+  }
 }

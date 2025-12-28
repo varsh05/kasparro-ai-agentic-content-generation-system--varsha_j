@@ -35,7 +35,8 @@ Product context:
 {state.product_context}
 """
 
-        response = self.llm.invoke(prompt)
+        response = self.safe_invoke(prompt)
+
 
         try:
             parsed = extract_json(response.content)
@@ -62,4 +63,6 @@ Product context:
             state.errors.append(f"ProductPageAgent failed: {str(e)}")
             raise RuntimeError("Invalid ProductPageAgent output")
 
-        return state
+        return {
+            "product_page": parsed
+        }
