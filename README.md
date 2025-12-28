@@ -1,137 +1,142 @@
-Kasparro AI – Agentic Content Generation System
+🧠 Agentic Content Generation System (Kasparro Assignment)
+This repository contains a production-oriented agentic AI system built as part of the Kasparro Applied AI / Agentic Systems assignment.
+The system uses LangGraph for explicit orchestration and a real LLM (Groq) to generate structured, machine-readable product content.
+The focus of this project is engineering quality, not prompt hacking — emphasizing modular agents, deterministic execution, robustness, and validated JSON outputs.
 
-This repository contains a modular, agentic automation system built as part of the Kasparro Applied AI Engineer challenge.  
-The system transforms structured product data into multiple machine-readable JSON content pages using clearly defined agents, reusable logic blocks, a DAG-style orchestration pipeline, and a custom template engine.
 
----
+🚀 Key Highlights
+✅ Framework-based agentic architecture (LangGraph DAG)
+✅ Real LLM integration using Groq (llama-3.1-8b-instant)
+✅ Clearly defined, single-responsibility agents
+✅ Retry limits and deterministic fallback handling
+✅ Strictly JSON outputs (no free-text pages)
+✅ Output schema validation using jsonschema
+✅ Execution metadata for traceability and observability
+✅ Production-style logging and artifact generation
 
-🎯 Objective
 
-Design and implement a production-style multi-agent content generation system that demonstrates:
-- Clear agent boundaries
-- Automation flow / orchestration graph (DAG-style pipeline)
-- Reusable content logic blocks
-- Template-based content generation
-- Structured, machine-readable JSON output
-
-The focus of this project is system design and automation engineering, not UI or content writing.
-
----
-
-🏗️ System Architecture Overview
-
-The system follows an orchestrator → worker agent pattern with a Directed Acyclic Graph (DAG) style execution flow.
-
-High-Level Flow
-Raw Product Data
-|
-v
-ProductParserAgent
-|
-v
+🧩 System Architecture
+The system is orchestrated as a Directed Acyclic Graph (DAG) where each agent performs a specific task and passes structured data to the next stage.
+Execution Flow:
+Raw Product Input
+       ↓
+ParserAgent
+       ↓
 QuestionGenerationAgent
-|
-v
-Orchestrator (DAG Pipeline)
-|
-v
-Logic Blocks + Templates
-|
-v
-JSON Output Pages
+       ↓
+FAQAgent (retry + fallback)
+       ↓
+ProductPageAgent
+       ↓
+ComparisonAgent
+       ↓
+Validated JSON Output
 
----
+LangGraph ensures:
+  Explicit execution order
+  Controlled retries
+  No hidden global state
+  Deterministic termination
 
-🤖 Agents
 
-Each agent:
-- Has a single responsibility
-- Uses explicit input/output contracts
-- Maintains no hidden global state
-- Implements a common run(input_data) interface
+🤖 Agent Overview
+ParserAgent: Normalizes raw product input into a structured product_context.
+QuestionGenerationAgent: Uses the LLM to generate 15+ relevant product questions.
+FAQAgen: Generates structured FAQs (question–answer pairs).
+  Key behaviors:
+  Validates LLM output as JSON
+  Retries on malformed output
+  Uses deterministic fallback when needed
+  Always returns valid structured data
+ProductPageAgent: Builds a structured product page object using generated content.
+ComparisonAgent: Produces a structured comparison between the main product and a competing product.
 
-Implemented Agents:
-- ProductParserAgent
-  Parses raw product data into a normalized internal model.
-- QuestionGenerationAgent 
-  Generates categorized user questions from structured product data.
 
----
+🔄 Orchestration & State Management
+  Implemented using LangGraph StateGraph
+  Explicit nodes and edges
+  Conditional retry logic with capped attempts
+  Shared graph state for all agents
+  Guaranteed graph termination
 
-🔄 Orchestration Flow (DAG)
 
-The automation pipeline is implemented as a step-based DAG, executed by a central orchestrator.
+🛡 Robustness & Failure Handling
+The system is designed for real-world LLM behavior, including:
+  Malformed JSON responses
+  Rate limiting
+  Partial failures
+Safeguards include:
+  JSON extraction & validation
+  Retry limits
+  Graceful fallback logic
+  Deterministic completion with valid output
+Fallback behavior is treated as a successful terminal state, not a crash.
 
-Execution order:
-1. Parse product data
-2. Generate categorized user questions
-3. Assemble Product Description page
-4. Assemble FAQ page
-5. Assemble Comparison page
 
-This ensures deterministic execution with clear data dependencies and no cyclic flow.
+📦 Output Format
+The final output is written as a machine-readable JSON artifact:
+D:\Agentic_AI\output\final_output.json
 
----
+Output includes:
+  raw_product_data
+  product_context
+  faq_questions
+  faq
+  product_page
+  comparison_page
+  metadata (execution trace)
 
-🧩 Reusable Logic Blocks
 
-Reusable logic blocks apply deterministic rules to structured data and are independent of agents and templates.
+🧪 Schema Validation
+Before writing the output, the system validates the final state against a JSON Schema using jsonschema, ensuring:
+  Structural correctness
+  Contract-driven design
+  Safe downstream consumption
 
-Examples:
-- Benefits extraction
-- Usage instruction extraction
-- Safety information extraction
-- Product comparison logic
 
-These blocks can be reused across multiple templates and page types.
+📊 Execution Metadata
+Each run appends a metadata block containing:
+  Unique run ID
+  Execution timestamp
+  LLM model used
+  Retry & fallback awareness
+  Agents executed
+This improves observability and auditability.
 
----
 
-📐 Template Engine
+🛠 Tech Stack
+  Python 3
+  LangGraph – agent orchestration
+  LangChain
+  Groq LLM (llama-3.1-8b-instant)
+  jsonschema – output validation
+All dependencies are explicitly listed in requirements.txt.
 
-The system includes a custom template engine where each template defines:
-- Output fields
-- Formatting rules
-- Explicit dependencies on logic blocks or agent outputs
 
-Templates are free of business logic and focus only on structure and assembly.
+▶️ How to Run
+1️⃣ Set environment variable
+setx GROQ_API_KEY "your_groq_api_key"
+Restart the terminal after setting.
 
-Implemented Templates
-- Product Description Page
-- FAQ Page
-- Comparison Page
+2️⃣ Install dependencies
+pip install -r requirements.txt
 
----
-
-📄 Output Files
-
-The system generates the following **machine-readable JSON files**:
-
-- product_page.json
-- faq.json
-- comparison_page.json
-
-All outputs are deterministic and suitable for downstream system consumption.
-
----
-
-🚀 How to Run
-
-Prerequisites
-- Python 3.8+
-
-Steps
-
-bash
+3️⃣ Run the system
 py main.py
 
----
 
-📘 Documentation
+📄 Documentation
+Detailed architectural and design explanations are available in:
 docs/projectdocumentation.md
 
 
+🧠 Design Philosophy
+This project prioritizes:
+  Explicit orchestration over sequential scripts
+  Failure-aware LLM integration
+  Structured outputs over free text
+  Production readiness over demo behavior
+The result is a real agentic system, not a deterministic transformation script.
 
-
-
-
+🏁 Summary
+This repository demonstrates a framework-backed, production-grade agentic content system with real LLM integration, robust orchestration, and validated machine-readable outputs — aligned with modern applied AI engineering standards.
