@@ -1,4 +1,5 @@
 🧠 Agentic Content Generation System (Kasparro Assignment)
+
 This repository contains a production-oriented agentic AI system built as part of the Kasparro Applied AI / Agentic Systems assignment.
 The system uses LangGraph for explicit orchestration and a real LLM (Groq) to generate structured, machine-readable product content.
 The focus of this project is engineering quality, not prompt hacking — emphasizing modular agents, deterministic execution, robustness, and validated JSON outputs.
@@ -6,17 +7,25 @@ The focus of this project is engineering quality, not prompt hacking — emphasi
 
 🚀 Key Highlights
 ✅ Framework-based agentic architecture (LangGraph DAG)
+
 ✅ Real LLM integration using Groq (llama-3.1-8b-instant)
+
 ✅ Clearly defined, single-responsibility agents
+
 ✅ Retry limits and deterministic fallback handling
+
 ✅ Strictly JSON outputs (no free-text pages)
+
 ✅ Output schema validation using jsonschema
+
 ✅ Execution metadata for traceability and observability
+
 ✅ Production-style logging and artifact generation
 
 
 🧩 System Architecture
 The system is orchestrated as a Directed Acyclic Graph (DAG) where each agent performs a specific task and passes structured data to the next stage.
+
 Execution Flow:
 Raw Product Input
        ↓
